@@ -1,0 +1,165 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.thai-address-input {
+  position: relative;
+}
+
+.thai-address-input .suggestion-list {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+}
+
+.thai-address-input .suggestion-list-item {
+  border: solid 1px #ddd;
+  border-top-style: none;
+  background: #fff;
+  padding: 10px 5px;
+  cursor: pointer;
+}
+
+.thai-address-input .suggestion-list-item:first-child {
+  border-top-style: solid;
+}
+
+.thai-address-input .suggestion-list-item.cursor,
+.thai-address-input .suggestion-list-item:hover {
+  background: #eee;
+}

@@ -1,15 +1,12 @@
 {
   "presets": [
-    [
-      "env",
-    {
+    ["env", {
       "targets": {
         "browsers": [
           "last 2 versions"
         ]
       }
-    }
-    ]
+    }]
   ],
   "plugins": [
     "transform-vue-jsx",

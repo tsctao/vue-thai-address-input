@@ -1,8 +1,11 @@
 <template>
-  <div class="thai-address-input theme-default">
+  <div class="thai-address-input">
     <input type="text"
       :value="value"
       ref="input"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :class="inputClass"
       @input="onType($event.target.value)"
       @focus="onFocus"
       @blur="onBlur"
@@ -35,6 +38,16 @@ export default {
     value: {
       required: true,
     },
+    placeholder: {
+      type: String,
+    },
+    disabled: {
+      type: String,
+      default: false,
+    },
+    inputClass: {
+      type: String,
+    }
   },
   data () {
     return {
@@ -124,30 +137,31 @@ export default {
 </script>
 
 <style>
-.thai-address-input.theme-default {
+.thai-address-input {
   position: relative;
+}
 
-  & .suggestion-list {
-    position: absolute;
-    z-index: 1000;
-    width: 100%;
-  }
+.thai-address-input .suggestion-list {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+}
 
-  & .suggestion-list-item {
-    border: solid 1px #ddd;
-    border-top-style: none;
-    background: #fff;
-    padding: 10px 5px;
-    cursor: pointer;
+.thai-address-input .suggestion-list-item {
+  border: solid 1px #ddd;
+  border-top-style: none;
+  background: #fff;
+  padding: 10px 5px;
+  cursor: pointer;
+}
 
-    &:first-child {
-      border-top-style: solid;
-    }
+.thai-address-input .suggestion-list-item:first-child {
+  border-top-style: solid;
+}
 
-    &.cursor, &:hover {
-      background: #eee;
-    }
-  }
+.thai-address-input .suggestion-list-item.cursor,
+.thai-address-input .suggestion-list-item:hover {
+  background: #eee;
 }
 </style>
 
