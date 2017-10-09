@@ -2,7 +2,11 @@
 
 [![npm](https://img.shields.io/npm/v/vue-thai-address-input.svg)](https://www.npmjs.com/package/vue-thai-address-input) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-> A Vue.js Plugin
+> Autocomplete ที่อยู่ประเทศไทย สำหรับ Vue.js (ไม่ต้องใช้ jQuery) โดยใช้ฐานข้อมูลและโค้ดบางส่วนจาก [jquery.Thailand.js](https://github.com/earthchie/jquery.Thailand.js)
+
+## Demo
+
+https://tsctao.github.io/vue-thai-address-input/
 
 ## Installation
 
