@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Thai address autocomplete for Vue.js",
   "author": "tsctao <taosc2@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsctao/vue-thai-address-input.git"
+  },
   "main": "dist/vue-thai-address-input.common.js",
   "module": "dist/vue-thai-address-input.esm.js",
   "browser": "dist/vue-thai-address-input.js",
@@ -10,7 +14,8 @@
   "style": "dist/vue-thai-address-input.css",
   "files": [
     "dist",
-    "src"
+    "src",
+    "database"
   ],
   "scripts": {
     "clean": "rimraf dist",
@@ -95,7 +100,6 @@
     "stylelint-processor-html": "^1.0.0",
     "uglify-js": "^3.0.0",
     "uppercamelcase": "^3.0.0",
-    "v-autocomplete": "^1.5.3",
     "vue": "^2.3.0",
     "vue-loader": "^12.0.0",
     "vue-template-compiler": "^2.3.0",
@@ -107,8 +111,7 @@
     "yarn-or-npm": "^2.0.0"
   },
   "peerDependencies": {
-    "vue": "^2.3.0",
-    "v-autocomplete": "^1.5.3"
+    "vue": "^2.3.0"
   },
   "dllPlugin": {
     "name": "vuePluginTemplateDeps",
@@ -127,8 +130,5 @@
       "style-loader/addStyles.js"
     ]
   },
-  "license": {
-    "type": "MIT",
-    "url": "http://www.opensource.org/licenses/mit-license.php"
-  }
+  "license": "MIT"
 }

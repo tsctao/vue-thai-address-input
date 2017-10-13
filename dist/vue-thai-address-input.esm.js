@@ -1,5 +1,5 @@
 /*!
- * vue-thai-address-input v0.0.0
+ * vue-thai-address-input v0.0.1
  * (c) 2017 tsctao
  * Released under the MIT License.
  */
@@ -158,7 +158,7 @@ var ThaiAddressInput = {render: function(){var _vm=this;var _h=_vm.$createElemen
       type: String,
     },
     disabled: {
-      type: String,
+      type: Boolean,
       default: false,
     },
     inputClass: {
@@ -267,6 +267,6 @@ function plugin(Vue, options) {
   Vue.prototype.$thaiAddressInput = new ThaiAddress(data);
 }
 
-var version = '0.0.0';
+var version = '0.0.1';
 
 export { ThaiAddressInput, version };export default plugin;

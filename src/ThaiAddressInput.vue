@@ -42,7 +42,7 @@ export default {
       type: String,
     },
     disabled: {
-      type: String,
+      type: Boolean,
       default: false,
     },
     inputClass: {
