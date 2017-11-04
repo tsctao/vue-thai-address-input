@@ -120,7 +120,7 @@ export default {
     onBlur() {
       setTimeout(() => {
         this.isFocus = false;
-      }, 50);
+      }, 200);
     },
     cursorUp() {
       if (this.cursor > 0) {

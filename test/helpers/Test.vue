@@ -39,55 +39,6 @@ export default {
 
 <style>
 @charset "utf-8";
-@import "../../node_modules/v-autocomplete/dist/v-autocomplete.css";
-
-.v-autocomplete .v-autocomplete-input-group .v-autocomplete-input {
-  font-size: 1.5em;
-  padding: 10px 15px;
-  box-shadow: none;
-  border: 1px solid #157977;
-  width: calc(100% - 32px);
-  outline: none;
-  background-color: #eee;
-}
-.v-autocomplete .v-autocomplete-input-group.v-autocomplete-selected .v-autocomplete-input {
-  color: green;
-  background-color: #f2fff2;
-}
-
-.v-autocomplete .v-autocomplete-list {
-  width: 100%;
-  text-align: left;
-  border: none;
-  border-top: none;
-  max-height: 400px;
-  overflow-y: auto;
-  border-bottom: 1px solid #157977;
-}
-
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item {
-  cursor: pointer;
-  background-color: #fff;
-  padding: 10px;
-  border-bottom: 1px solid #157977;
-  border-left: 1px solid #157977;
-  border-right: 1px solid #157977;
-}
-
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item:last-child {
-  border-bottom: none;
-}
-
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item:hover {
-  background-color: #eee;
-}
-
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item abbr {
-  opacity: 0.8;
-  font-size: 0.8em;
-  display: block;
-  font-family: sans-serif;
-}
 
 #mocha .test-dom-container {
   border: 1px solid #eee;

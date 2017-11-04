@@ -1,13 +1,12 @@
 import Vue from 'vue/dist/vue.js'
-import Autocomplete from 'v-autocomplete'
-import VueThaiAddress from 'src'
+import ThaiAddressInput from 'src'
+import db from '../../database/db.json'
 import Test from './Test.vue'
 
 Vue.config.productionTip = false
 const isKarma = !!window.__karma__
 
-Vue.use(Autocomplete)
-Vue.use(VueThaiAddress)
+Vue.use(ThaiAddressInput, { database: db })
 
 export function createVM (context, template, opts = {}) {
   return isKarma
