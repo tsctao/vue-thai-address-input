@@ -1,6 +1,6 @@
 {
   "name": "vue-thai-address-input",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Thai address autocomplete for Vue.js",
   "author": "tsctao <taosc2@gmail.com>",
   "repository": {
