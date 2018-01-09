@@ -1,5 +1,5 @@
 /*!
- * vue-thai-address-input v0.1.0
+ * vue-thai-address-input v0.2.0
  * (c) 2018 tsctao
  * Released under the MIT License.
  */
@@ -274,7 +274,7 @@ var ThaiAddressInput = {render: function(){var _vm=this;var _h=_vm.$createElemen
   },
 };
 
-function install(Vue, options) {
+function plugin(Vue, options) {
   if ( options === void 0 ) options = {};
 
   Vue.component('ThaiAddressInput', ThaiAddressInput);
@@ -283,8 +283,11 @@ function install(Vue, options) {
   Vue.prototype.$thaiAddressInput = new ThaiAddress(data);
 }
 
-var version = '0.1.0';
-// Export all components too
-var index = { ThaiAddressInput: ThaiAddressInput, version: version, install: install };
+// Install by default if using the script tag
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(plugin);
+}
 
-export default index;
+var version = '0.2.0';
+
+export { ThaiAddressInput, version };export default plugin;
