@@ -6,7 +6,7 @@ import Test from './Test.vue'
 Vue.config.productionTip = false
 const isKarma = !!window.__karma__
 
-Vue.use(ThaiAddressInput, { database: db })
+Vue.use(ThaiAddressInput)
 
 export function createVM (context, template, opts = {}) {
   return isKarma

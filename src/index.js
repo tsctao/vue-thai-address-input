@@ -1,14 +1,13 @@
 import ThaiAddress from './ThaiAddress';
 import ThaiAddressInput from './ThaiAddressInput.vue';
 
-function plugin(Vue, options = {}) {
+function install(Vue, options = {}) {
   Vue.component('ThaiAddressInput', ThaiAddressInput);
 
-  const data = options.database;
+  const data = options.database || 'https://tsctao.github.io/vue-thai-address-input/dist/db.json';
   Vue.prototype.$thaiAddressInput = new ThaiAddress(data);
 }
 
-export default plugin;
 const version = '__VERSION__';
 // Export all components too
-export { ThaiAddressInput, version };
+export default { ThaiAddressInput, version, install };

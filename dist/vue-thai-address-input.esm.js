@@ -1,6 +1,6 @@
 /*!
- * vue-thai-address-input v0.0.4
- * (c) 2017 tsctao
+ * vue-thai-address-input v0.1.0
+ * (c) 2018 tsctao
  * Released under the MIT License.
  */
 
@@ -30,7 +30,23 @@ Decoder.prototype.decode = function decode (text) {
 };
 
 var ThaiAddress = function ThaiAddress(db) {
-  this.data = this.constructor.extractDataFromDb(db);
+  var this$1 = this;
+
+  if (typeof db === 'string' && /^https?:\/\//.test(db.substring(0, 8))) {
+    this.data = [];
+
+    var request = new XMLHttpRequest();
+    request.open('GET', db, true);
+    request.onload = function () {
+      if (request.status >= 200 && request.status < 400) {
+        var data = JSON.parse(request.responseText);
+        this$1.data = this$1.constructor.extractDataFromDb(data);
+      }
+    };
+    request.send();
+  } else {
+    this.data = this.constructor.extractDataFromDb(db);
+  }
 };
 
 /**
@@ -140,7 +156,7 @@ ThaiAddress.prototype.search = function search (keyword, fields) {
   return fields.reduce(function (result, field) { return result.concat(matches[field]); }, []);
 };
 
-var ThaiAddressInput = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"thai-address-input"},[_c('input',{ref:"input",class:_vm.inputClass,attrs:{"type":"text","placeholder":_vm.placeholder,"disabled":_vm.disabled},domProps:{"value":_vm.value},on:{"input":function($event){_vm.onType($event.target.value);},"focus":_vm.onFocus,"blur":_vm.onBlur,"keydown":[function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"up",38)){ return null; }$event.preventDefault();_vm.cursorUp($event);},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"down",40)){ return null; }$event.preventDefault();_vm.cursorDown($event);}],"keyup":function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"enter",13)){ return null; }_vm.selectItem();}}}),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isFocus),expression:"isFocus"}],staticClass:"suggestion-list"},_vm._l((_vm.suggestions),function(item,index){return _c('div',{staticClass:"suggestion-list-item",class:{ 'cursor': _vm.cursor === index },on:{"click":function($event){_vm.selectItem(item);}}},[_vm._v(" "+_vm._s(_vm.suggestionText(item))+" ")])}))])},staticRenderFns: [],
+var ThaiAddressInput = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"thai-address-input"},[_c('input',{ref:"input",class:_vm.inputClass,attrs:{"type":"text","placeholder":_vm.placeholder,"disabled":_vm.disabled},domProps:{"value":_vm.value},on:{"input":function($event){_vm.onType($event.target.value);},"focus":_vm.onFocus,"blur":_vm.onBlur,"keydown":[function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"up",38,$event.key)){ return null; }$event.preventDefault();_vm.cursorUp($event);},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"down",40,$event.key)){ return null; }$event.preventDefault();_vm.cursorDown($event);}],"keyup":function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"enter",13,$event.key)){ return null; }_vm.selectItem();}}}),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isFocus),expression:"isFocus"}],staticClass:"suggestion-list"},_vm._l((_vm.suggestions),function(item,index){return _c('div',{staticClass:"suggestion-list-item",class:{ 'cursor': _vm.cursor === index },on:{"click":function($event){_vm.selectItem(item);}}},[_vm._v(" "+_vm._s(_vm.suggestionText(item))+" ")])}))])},staticRenderFns: [],
   name: 'ThaiAddressInput',
   props: {
     type: {
@@ -258,15 +274,17 @@ var ThaiAddressInput = {render: function(){var _vm=this;var _h=_vm.$createElemen
   },
 };
 
-function plugin(Vue, options) {
+function install(Vue, options) {
   if ( options === void 0 ) options = {};
 
   Vue.component('ThaiAddressInput', ThaiAddressInput);
 
-  var data = options.database;
+  var data = options.database || 'https://tsctao.github.io/vue-thai-address-input/dist/db.json';
   Vue.prototype.$thaiAddressInput = new ThaiAddress(data);
 }
 
-var version = '0.0.4';
+var version = '0.1.0';
+// Export all components too
+var index = { ThaiAddressInput: ThaiAddressInput, version: version, install: install };
 
-export { ThaiAddressInput, version };export default plugin;
+export default index;

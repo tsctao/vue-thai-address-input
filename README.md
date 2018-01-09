@@ -21,11 +21,10 @@ npm install --save vue-thai-address-input
 ```js
 import Vue from 'vue'
 import VueThaiAddressInput from 'vue-thai-address-input'
-import db from 'vue-thai-address-input/database/db.json';
 // You need a specific loader for CSS files like https://github.com/webpack/css-loader
 import 'vue-thai-address-input/dist/vue-thai-address-input.css'
 
-Vue.use(ThaiAddressInput, { database: db });
+Vue.use(ThaiAddressInput);
 ```
 
 ดูตัวอย่างการใช้งานในโฟลเดอร์ demo

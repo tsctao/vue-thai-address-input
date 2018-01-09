@@ -25,7 +25,21 @@ class Decoder {
 
 class ThaiAddress {
   constructor(db) {
-    this.data = this.constructor.extractDataFromDb(db);
+    if (typeof db === 'string' && /^https?:\/\//.test(db.substring(0, 8))) {
+      this.data = [];
+
+      const request = new XMLHttpRequest();
+      request.open('GET', db, true);
+      request.onload = () => {
+        if (request.status >= 200 && request.status < 400) {
+          const data = JSON.parse(request.responseText);
+          this.data = this.constructor.extractDataFromDb(data);
+        }
+      }
+      request.send();
+    } else {
+      this.data = this.constructor.extractDataFromDb(db);
+    }
   }
 
   /**

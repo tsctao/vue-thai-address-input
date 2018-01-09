@@ -1,11 +1,10 @@
 import Vue from 'vue';
 import ThaiAddressInput from '../../dist/vue-thai-address-input.common';
-import db from '../../database/db.json';
 import App from './App.vue';
 
 require('../../dist/vue-thai-address-input.min.css');
 
-Vue.use(ThaiAddressInput, { database: db });
+Vue.use(ThaiAddressInput);
 
 // eslint-disable-next-line no-new
 new Vue({
