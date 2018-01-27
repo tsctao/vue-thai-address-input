@@ -5,6 +5,7 @@
       ref="input"
       :placeholder="placeholder"
       :disabled="disabled"
+      :required="required"
       :class="inputClass"
       @input="onType($event.target.value)"
       @focus="onFocus"
@@ -47,7 +48,11 @@ export default {
     },
     inputClass: {
       type: String,
-    }
+    },
+    required: {
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {

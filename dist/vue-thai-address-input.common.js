@@ -1,5 +1,5 @@
 /*!
- * vue-thai-address-input v0.2.0
+ * vue-thai-address-input v0.2.1
  * (c) 2018 tsctao
  * Released under the MIT License.
  */
@@ -160,7 +160,7 @@ ThaiAddress.prototype.search = function search (keyword, fields) {
   return fields.reduce(function (result, field) { return result.concat(matches[field]); }, []);
 };
 
-var ThaiAddressInput = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"thai-address-input"},[_c('input',{ref:"input",class:_vm.inputClass,attrs:{"type":"text","placeholder":_vm.placeholder,"disabled":_vm.disabled},domProps:{"value":_vm.value},on:{"input":function($event){_vm.onType($event.target.value);},"focus":_vm.onFocus,"blur":_vm.onBlur,"keydown":[function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"up",38,$event.key)){ return null; }$event.preventDefault();_vm.cursorUp($event);},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"down",40,$event.key)){ return null; }$event.preventDefault();_vm.cursorDown($event);}],"keyup":function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"enter",13,$event.key)){ return null; }_vm.selectItem();}}}),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isFocus),expression:"isFocus"}],staticClass:"suggestion-list"},_vm._l((_vm.suggestions),function(item,index){return _c('div',{staticClass:"suggestion-list-item",class:{ 'cursor': _vm.cursor === index },on:{"click":function($event){_vm.selectItem(item);}}},[_vm._v(" "+_vm._s(_vm.suggestionText(item))+" ")])}))])},staticRenderFns: [],
+var ThaiAddressInput = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"thai-address-input"},[_c('input',{ref:"input",class:_vm.inputClass,attrs:{"type":"text","placeholder":_vm.placeholder,"disabled":_vm.disabled,"required":_vm.required},domProps:{"value":_vm.value},on:{"input":function($event){_vm.onType($event.target.value);},"focus":_vm.onFocus,"blur":_vm.onBlur,"keydown":[function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"up",38,$event.key)){ return null; }$event.preventDefault();_vm.cursorUp($event);},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"down",40,$event.key)){ return null; }$event.preventDefault();_vm.cursorDown($event);}],"keyup":function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"enter",13,$event.key)){ return null; }_vm.selectItem();}}}),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isFocus),expression:"isFocus"}],staticClass:"suggestion-list"},_vm._l((_vm.suggestions),function(item,index){return _c('div',{staticClass:"suggestion-list-item",class:{ 'cursor': _vm.cursor === index },on:{"click":function($event){_vm.selectItem(item);}}},[_vm._v(" "+_vm._s(_vm.suggestionText(item))+" ")])}))])},staticRenderFns: [],
   name: 'ThaiAddressInput',
   props: {
     type: {
@@ -183,7 +183,11 @@ var ThaiAddressInput = {render: function(){var _vm=this;var _h=_vm.$createElemen
     },
     inputClass: {
       type: String,
-    }
+    },
+    required: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: function data () {
     return {
@@ -292,7 +296,7 @@ if (typeof window !== 'undefined' && window.Vue) {
   window.Vue.use(plugin);
 }
 
-var version = '0.2.0';
+var version = '0.2.1';
 
 exports['default'] = plugin;
 exports.ThaiAddressInput = ThaiAddressInput;
