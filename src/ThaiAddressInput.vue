@@ -4,6 +4,7 @@
       :value="value"
       ref="input"
       :placeholder="placeholder"
+      :name="name"
       :disabled="disabled"
       :required="required"
       :class="inputClass"
@@ -40,6 +41,9 @@ export default {
       required: true,
     },
     placeholder: {
+      type: String,
+    },
+    name: {
       type: String,
     },
     disabled: {
